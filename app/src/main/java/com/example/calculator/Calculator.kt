@@ -31,5 +31,4 @@ class Calculator {
     fun divide(num1: Int, num2: Int): Double {
         return num1.toDouble() / num2.toDouble()
     }
-
 }
