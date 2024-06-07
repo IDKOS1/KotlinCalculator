@@ -13,10 +13,10 @@ fun main() {
         operation = readLine()!!.toInt()
         if(operation == -1) return println("종료합니다.")
         when(operation){
-            1 -> num1 = AddOperation().add(num1, num2)
-            2 -> num1 = SubstractOperation().subtract(num1, num2)
-            3 -> num1 = MultiplyOperation().multiply(num1, num2)
-            4 -> num1 = DivideOperation().divide(num1, num2)
+            1 -> num1 = AddOperation().operate(num1, num2)
+            2 -> num1 = SubstractOperation().operate(num1, num2)
+            3 -> num1 = MultiplyOperation().operate(num1, num2)
+            4 -> num1 = DivideOperation().operate(num1, num2)
             -1 -> return println("종료합니다.")
             else -> return println("잘못 입력했습니다. 종료합니다.")
         }
