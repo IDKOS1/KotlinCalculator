@@ -14,10 +14,10 @@ fun main() {
         operation = readLine()!!.toInt()
         if(operation == -1) return println("종료합니다.")
         when(operation){
-            1 -> num1 = AddOperation().add(num1, num2)
-            2 -> num1 = SubstractOperation().subtract(num1, num2)
-            3 -> num1 = MultiplyOperation().multiply(num1, num2)
-            4 -> num1 = DivideOperation().divide(num1, num2)
+            1 -> num1 = AddOperation().operate(num1, num2)
+            2 -> num1 = SubstractOperation().operate(num1, num2)
+            3 -> num1 = MultiplyOperation().operate(num1, num2)
+            4 -> num1 = DivideOperation().operate(num1, num2)
             -1 -> return println("종료합니다.")
             else -> return println("잘못 입력했습니다. 종료합니다.")
         }
@@ -27,31 +27,29 @@ fun main() {
 }
 
 open class Calculator {
-    init {
-        println("계산을 진행합니다...")
-    }
+    open fun operate(num1: Int, num2: Int): Int = 0
 }
 
 class AddOperation: Calculator() {
-    fun add(num1: Int, num2: Int): Int {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 + num2
     }
 }
 
 class SubstractOperation: Calculator() {
-    fun subtract(num1: Int, num2: Int): Int {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 - num2
     }
 }
 
 class MultiplyOperation: Calculator() {
-    fun multiply(num1: Int, num2: Int): Int {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 * num2
     }
 }
 
 class DivideOperation: Calculator() {
-    fun divide(num1: Int, num2: Int): Int {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 / num2
     }
 }
