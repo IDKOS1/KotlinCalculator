@@ -1,9 +1,11 @@
 package com.example.calculator
 
 fun main() {
+    println("Lv4 version")
     println("첫번째 숫자를 입력해 주세요.")
     var num1 = readLine()!!.toInt()
     var operation = 0
+
     while(operation != -1) {
         println("${num1}에 계산할 숫자를 입력해 주세요.")
         var num2 = readLine()!!.toInt()
@@ -14,7 +16,7 @@ fun main() {
         if(operation == -1) return println("종료합니다.")
         when(operation){
             1 -> num1 = AddOperation().operate(num1, num2)
-            2 -> num1 = SubstractOperation().operate(num1, num2)
+            2 -> num1 = SubtractOperation().operate(num1, num2)
             3 -> num1 = MultiplyOperation().operate(num1, num2)
             4 -> num1 = DivideOperation().operate(num1, num2)
             -1 -> return println("종료합니다.")
@@ -39,7 +41,7 @@ class AddOperation: AbstractOperation() {
     }
 }
 
-class SubstractOperation: AbstractOperation() {
+class SubtractOperation: AbstractOperation() {
     override fun operate(num1: Int, num2: Int): Int {
         return num1 - num2
     }
