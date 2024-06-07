@@ -3,7 +3,6 @@ package com.example.calculator
 fun main() {
     println("첫번째 숫자를 입력해 주세요.")
     var num1 = readLine()!!.toInt()
-
     var operation = 0
     while(operation != -1) {
         println("${num1}에 계산할 숫자를 입력해 주세요.")
@@ -26,32 +25,34 @@ fun main() {
     }
 }
 
-open class Calculator {
+abstract class AbstractOperation {
     init {
         println("계산을 진행합니다...")
     }
+    abstract fun operate(num1: Int, num2: Int): Int
 }
 
-class AddOperation: Calculator() {
-    fun add(num1: Int, num2: Int): Int {
+
+class AddOperation: AbstractOperation() {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 + num2
     }
 }
 
-class SubstractOperation: Calculator() {
-    fun subtract(num1: Int, num2: Int): Int {
+class SubstractOperation: AbstractOperation() {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 - num2
     }
 }
 
-class MultiplyOperation: Calculator() {
-    fun multiply(num1: Int, num2: Int): Int {
+class MultiplyOperation: AbstractOperation() {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 * num2
     }
 }
 
-class DivideOperation: Calculator() {
-    fun divide(num1: Int, num2: Int): Int {
+class DivideOperation: AbstractOperation() {
+    override fun operate(num1: Int, num2: Int): Int {
         return num1 / num2
     }
 }
