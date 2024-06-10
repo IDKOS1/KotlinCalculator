@@ -12,7 +12,6 @@ fun main() {
         println("1. 더하기  2. 빼기 3. 곱하기  4. 나누기  5. 나머지 구하기  -1. 종료")
         operation = readLine()!!.toInt()
         if(operation == -1) return println("종료합니다.")
-        var addOperate = AddOperation()
         when(operation){
             1 -> num1 = Calculator(AddOperation()).operate(num1, num2)
             2 -> num1 = Calculator(SubtractOperation()).operate(num1, num2)
